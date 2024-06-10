@@ -1,0 +1,31 @@
+.thankspage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.thanks {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 48px !important;
+  color: green;
+}
+
+@media screen and (max-width: 768px) {
+  .thanks {
+    font-size: 36px !important;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .thankspage {
+    padding: 20px ;
+  }
+
+  .thanks {
+    font-size: 24px !important;
+    margin-bottom: 10px; 
+  }
+}
