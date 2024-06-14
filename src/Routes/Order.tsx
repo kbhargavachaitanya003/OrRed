@@ -1,18 +1,18 @@
 import React from 'react';
-import { useFoodStore } from './Store';
+import { useFoodStore } from '../Components/Store';
 import { Button, Typography, Card, CardContent, IconButton, CardMedia } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import '../Styles/Order.css';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Order = () => {
   const selectedFoodType = useFoodStore((state) => state.selectedFoodType);
   const selectedRestaurant = useFoodStore((state) => state.selectedRestaurant);
   const orderItems = useFoodStore((state) => state.orderItems);
-  const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
-  // const navigate = useNavigate();
+  // const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
+  const navigate = useNavigate();
 
   const handleIncrease = (itemName: string) => {
     useFoodStore.setState((state) => {
@@ -43,15 +43,16 @@ const Order = () => {
   }, 0).toFixed(2);
 
   const handleSubmit = () => {
-    // navigate('/thankyou');
-    setCurrentPage(4);
+    navigate('/thankyou');
+    // setCurrentPage(4);
   };
 
   return (
     <div className="page">
       <ArrowBackIcon 
         className='back-button'
-        onClick={() => setCurrentPage(2)}
+        // onClick={() => setCurrentPage(2)}
+        onClick={() => navigate('/menu')}
       />
       <div className="order-container">
         <Card className="order-card">

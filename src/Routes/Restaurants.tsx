@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
-import { fetchRestaurants } from './api';
-import { useFoodStore } from './Store';
-// import { useNavigate } from 'react-router-dom';
+import { fetchRestaurants } from '../Components/api';
+import { useFoodStore } from '../Components/Store';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import '../Styles/Restaurants.css';
@@ -15,8 +15,8 @@ const Restaurants = () => {
   });
   const setSelectedRestaurantId = useFoodStore((state) => state.setSelectedRestaurantId);
   const setSelectedRestaurant = useFoodStore((state) => state.setSelectedRestaurant);
-  const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
-  // const navigate = useNavigate();
+  // const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
+  const navigate = useNavigate();
 
   if (isLoading) return <div className='loaderror'>Loading...</div>
 
@@ -26,7 +26,8 @@ const Restaurants = () => {
     <div className="rescontainer">
       <ArrowBackIcon 
         className='back-button'
-        onClick={() => setCurrentPage(0)}
+        // onClick={() => setCurrentPage(0)}
+        onClick={() => navigate('/')}
       />
       <h1 className="resheader">Restaurants</h1>
       <div className="resgrid-container">
@@ -37,8 +38,8 @@ const Restaurants = () => {
             onClick={() => {
               setSelectedRestaurantId(restaurant.id);
               setSelectedRestaurant(restaurant.name);
-              setCurrentPage(2);
-              // navigate('/menu');
+              // setCurrentPage(2);
+              navigate('/menu');
             }}
           >
             {restaurant.name}

@@ -1,9 +1,9 @@
 import React from 'react';
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Button, IconButton } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
-import { fetchMenu } from './api';
-import { useFoodStore } from './Store';
+import { fetchMenu } from '../Components/api';
+import { useFoodStore } from '../Components/Store';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
@@ -14,9 +14,9 @@ const Menu = () => {
     const selectedRestaurantId = useFoodStore((state) => state.selectedRestaurantId);
     const addItem = useFoodStore((state) => state.addItem);
     const updateItemQuantity = useFoodStore((state) => state.updateItemQuantity);
-    // const navigate = useNavigate();
+    const navigate = useNavigate();
     const orderItems = useFoodStore((state) => state.orderItems);
-    const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
+    // const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
 
     const handleAdd = (name: string, price: number, image: string, description: string) => {
         const item = orderItems.find((item) => item.name === name);
@@ -51,7 +51,8 @@ const Menu = () => {
         <div className='container'>
             <ArrowBackIcon 
                 className='back-button'
-                onClick={() => setCurrentPage(1)}
+                // onClick={() => setCurrentPage(1)}
+                onClick={() => navigate('/restaurants')}
             />
             <h1 className='header'>Menu</h1>
             <div className="grid-container">
@@ -109,7 +110,8 @@ const Menu = () => {
                     variant="contained"
                     color="primary"
                     className="place-order-button"
-                    onClick={() => setCurrentPage(3)}
+                    // onClick={() => setCurrentPage(3)}
+                    onClick={() => navigate('/order')}
                 >
                     Place Order
                 </Button>

@@ -1,8 +1,8 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query'
-import { fetchFoodTypes } from './api';
-import { useFoodStore } from './Store';
-// import { useNavigate } from 'react-router-dom';
+import { fetchFoodTypes } from '../Components/api';
+import { useFoodStore } from '../Components/Store';
+import { useNavigate } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import '../Styles/FoodTypes.css';
 
@@ -14,9 +14,9 @@ const FoodTypes = () => {
   });
 
   const setSelectedFoodType = useFoodStore((state) => state.setSelectedFoodType);
-  const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
+  // const setCurrentPage = useFoodStore((state) => state.setCurrentPage);
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   if (isLoading){
     return <div className='loaderror'>Loading...</div>
@@ -36,8 +36,8 @@ const FoodTypes = () => {
             className="food-card"
             onClick={() => {
               setSelectedFoodType(foodType);
-              // navigate('/restaurants');
-              setCurrentPage(1);
+              navigate('/restaurants');
+              // setCurrentPage(1);
             }}
           >
             <CardActionArea>

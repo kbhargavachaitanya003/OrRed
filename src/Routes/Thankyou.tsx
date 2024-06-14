@@ -1,8 +1,6 @@
 import React from 'react'
 import { Typography } from '@mui/material'
 import '../Styles/Thankyou.css'
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useFoodStore } from './Store';
 
 
 const Thankyou = () => {
