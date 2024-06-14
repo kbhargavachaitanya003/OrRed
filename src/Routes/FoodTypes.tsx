@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query'
 import { fetchFoodTypes } from '../Components/api';
-import { useFoodStore } from '../Components/Store';
+import { useFoodStore } from '../Store/Store';
 import { useNavigate } from 'react-router-dom';
 import { Card, CardActionArea, CardContent, CardMedia, Typography } from '@mui/material';
 import '../Styles/FoodTypes.css';

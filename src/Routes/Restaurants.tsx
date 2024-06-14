@@ -1,7 +1,8 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { fetchRestaurants } from '../Components/api';
-import { useFoodStore } from '../Components/Store';
+// import { useFoodStore } from '../Components/Store';
+import { useFoodStore } from '../Store/Store';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';

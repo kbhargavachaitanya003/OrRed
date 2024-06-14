@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent, CardMedia, Typography, Button, IconButton } from '@mui/material';
 import { useQuery } from '@tanstack/react-query';
 import { fetchMenu } from '../Components/api';
-import { useFoodStore } from '../Components/Store';
+import { useFoodStore } from '../Store/Store';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
